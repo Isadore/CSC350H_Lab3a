@@ -67,6 +67,7 @@ public class Appointments {
     }
 
     public void displayReservedTimes() {
+        Console.WriteLine("0 = Minute Available, 1 = Minute Unavailable");
         for(int i = 0; i < 8; i++) {
             Console.Write("Period " + (i+1) + " Availability: ");
             for(int j = 0; j < 60; j++) {
