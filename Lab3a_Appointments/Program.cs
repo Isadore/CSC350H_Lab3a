@@ -1,4 +1,9 @@
-﻿Appointments a = new Appointments();
+﻿public class Test {
+    public static void Main(string[] args) {
+        Appointments a = new();
+        
+    }
+}
 
 public class Appointments {
     int[,] timeSlots;
