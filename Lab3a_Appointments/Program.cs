@@ -21,6 +21,25 @@ public class Appointments {
         }
     }
 
+    public int findFreeBlock(int period, int duration) {
+        int durationFound = 0;
+        int startMinute = -1;
+        for(int i = 0; i <= 59; i++) {
+            if(isMinuteFree(period, i)) {
+                durationFound++;
+                if(startMinute == -1) {
+                    startMinute = i;
+                }
+            } else {
+                startMinute = -1;
+                durationFound = 0;
+            }
+            if(durationFound == duration) {
+                return startMinute;
+            }
+        }
+        return -1;
+    }
 }
 
 
