@@ -12,11 +12,14 @@ public class Appointments {
         }
         return timeSlots[period-1, minute] == 0;
     }
-public void reserveBlock(int period, int startMinute, int duration) {
-    for (int x = 0; x < duration; x++) {
-        timeSlots[period=1,startMinute+x] = 1;
+    public void reserveBlock(int period, int startMinute, int duration) {
+         if(period < 1 || period > timeSlots.Length || startMinute < 0 || startMinute > (timeSlots.Length-1) || duration < 1 || duration > 60) {
+            return;
+        }
+        for (int x = 0; x < duration; x++) {
+            timeSlots[period-1,startMinute+x] = 1;
+        }
     }
-}
 
 }
 
