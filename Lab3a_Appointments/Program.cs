@@ -40,6 +40,17 @@ public class Appointments {
         }
         return -1;
     }
+
+    public bool makeAppointment (int startPeriod, int endPeriod, int duration) {
+        for(int x = startPeriod; x < endPeriod; x++) {
+            int block = findFreeBlock(x, duration);
+            if (block != -1) {
+                reserveBlock(x, block, duration);
+                return true;
+            } 
+        }
+        return false;
+    }
 }
 
 
