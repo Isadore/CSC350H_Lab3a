@@ -2,6 +2,10 @@
     public static void Main(string[] args) {
         Appointments a = new();
         
+        Random rnd = new Random();
+        int rDuration = rnd.Next(5,30);
+        a.makeAppointment(2,5, rDuration);
+        
     }
 }
 
