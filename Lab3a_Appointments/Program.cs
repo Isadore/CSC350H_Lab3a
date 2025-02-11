@@ -3,8 +3,13 @@
         Appointments a = new();
         
         Random rnd = new Random();
-        int rDuration = rnd.Next(5,30);
-        a.makeAppointment(2,5, rDuration);
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.makeAppointment(2,5, rnd.Next(5,30));
+        a.displayReservedTimes();
         
     }
 }
@@ -60,6 +65,17 @@ public class Appointments {
         }
         return false;
     }
+
+    public void displayReservedTimes() {
+        for(int i = 0; i < 8; i++) {
+            Console.Write("Period " + (i+1) + " Availability: ");
+            for(int j = 0; j < 60; j++) {
+                Console.Write(timeSlots[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
 }
 
 
