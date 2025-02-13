@@ -3,12 +3,15 @@
         Appointments a = new();
         
         Random rnd = new Random();
-        a.makeAppointment(2,5, rnd.Next(5,30));
-        a.makeAppointment(2,5, rnd.Next(5,30));
-        a.makeAppointment(2,5, rnd.Next(5,30));
-        a.makeAppointment(2,5, rnd.Next(5,30));
-        a.makeAppointment(2,5, rnd.Next(5,30));
-        a.makeAppointment(2,5, rnd.Next(5,30));
+        
+        a.displayReservedTimes();
+
+        for (int i = 1; i <= 8; i++)
+        {
+        bool aptMade = a.makeAppointment(i,i,10);
+        Console.WriteLine($"Period: {i} : {aptMade}");
+        }
+
         a.displayReservedTimes();
         
     }
@@ -20,8 +23,8 @@ public class Appointments {
         timeSlots = new int[8, 60]; //[Periods, Minutes]
         Random rnd = new Random();
         for(int i = 0; i < 10; i++) {
-            int p = rnd.Next(1, 8);
-            makeAppointment(p,p, rnd.Next(5,30));
+            int p = rnd.Next(1, 9);
+            makeAppointment(p,p, rnd.Next(5,31));
         }
     }
 
