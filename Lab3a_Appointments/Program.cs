@@ -18,6 +18,11 @@ public class Appointments {
     int[,] timeSlots;
     public Appointments() {
         timeSlots = new int[8, 60]; //[Periods, Minutes]
+        Random rnd = new Random();
+        for(int i = 0; i < 10; i++) {
+            int p = rnd.Next(1, 8);
+            makeAppointment(p,p, rnd.Next(5,30));
+        }
     }
 
     public bool isMinuteFree(int period, int minute) {
@@ -56,7 +61,7 @@ public class Appointments {
     }
 
     public bool makeAppointment (int startPeriod, int endPeriod, int duration) {
-        for(int x = startPeriod; x < endPeriod; x++) {
+        for(int x = startPeriod; x <= endPeriod; x++) {
             int block = findFreeBlock(x, duration);
             if (block != -1) {
                 reserveBlock(x, block, duration);
