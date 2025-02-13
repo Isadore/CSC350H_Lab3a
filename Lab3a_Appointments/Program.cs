@@ -2,14 +2,11 @@
     public static void Main(string[] args) {
         Appointments a = new();
         
-        Random rnd = new Random();
-        
         a.displayReservedTimes();
 
-        for (int i = 1; i <= 8; i++)
-        {
-        bool aptMade = a.makeAppointment(i,i,10);
-        Console.WriteLine($"Period: {i} : {aptMade}");
+        for (int i = 1; i <= 8; i++) {
+            bool aptMade = a.makeAppointment(i,i,10);
+            Console.WriteLine($"Period: {i} : {aptMade}");
         }
 
         a.displayReservedTimes();
@@ -75,11 +72,11 @@ public class Appointments {
     }
 
     public void displayReservedTimes() {
-        Console.WriteLine("0 = Minute Available, 1 = Minute Unavailable");
+        Console.WriteLine("- = Minute Available, | = Minute Unavailable");
         for(int i = 0; i < 8; i++) {
             Console.Write("Period " + (i+1) + " Availability: ");
             for(int j = 0; j < 60; j++) {
-                Console.Write(timeSlots[i, j] + " ");
+                Console.Write((timeSlots[i, j] == 1 ? "-" : "|") + "");
             }
             Console.WriteLine();
         }
